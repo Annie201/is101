@@ -21,5 +21,5 @@ pal <- pal[-c(1:2)]
 wordcloud(names(dh.wordcount2),freq=dh.wordcount2,scale=c(10,1),max.words=50,random.order=F,random.color=F, rot.per=.1,colors=pal)
 #dev.off()
 
-hist(dh.wordcount2, ylim=c(0,max(dh.wordcount2), breaks=length(table(dh.wordcount2)), main="histogram of words")
+hist(dh.wordcount2, ylim=c(0,max(dh.wordcount2)), breaks=length(table(dh.wordcount2)), main="histogram of words")
 
