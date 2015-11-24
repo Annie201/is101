@@ -1,5 +1,6 @@
 #http://bigbigdata.tistory.com/78에 기반 했습니다.
 #http://ddokbaro.com/3695에 기반 했습니다.
+# 11/24/2015
 
 library(KoNLP)
 library(wordcloud)
