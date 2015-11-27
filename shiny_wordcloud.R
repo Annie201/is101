@@ -1,4 +1,4 @@
-#Version 0.5
+#Version 0.5 두번째 과제 용입니다.
 #http://bigbigdata.tistory.com/78에 기반 했습니다.
 #http://ddokbaro.com/3695에 기반 했습니다.
 # 11/27/2015
@@ -16,7 +16,7 @@ dh.nouns <- sapply(dh.lines, extractNoun, USE.NAMES=F)
 dh.data <- unlist(dh.nouns)
 dh.data2 <- Filter(function(x){nchar(x)>MINIMUM LENGTH OF WORD HERE}, dh.data)
 dh.data2 <- gsub("STOPWORD", "", dh.data2)
-dh.wordcount2 <- table(unlist(dh.data2))
+dh.wordcount2 <- table(unlist(dh.data2), exclude="")
 write.table(dh.wordcount2, "dh.wordcount2.txt", sep="\t", row.names=FALSE)
 
 #Romanizing in HANGEUL 
