@@ -11,10 +11,8 @@ dh.nouns <- sapply(dh.lines, extractNoun, USE.NAMES=F)
 dh.data <- unlist(dh.nouns)
 dh.data2 <- Filter(function(x){nchar(x)>MINIMUM LENGTH OF WORD HERE}, dh.data)
 dh.data2 <- gsub("STOPWORD", "", dh.data2)
-dh.wordcount2 <- table(unlist(dh.data2))
-#2 lines are added for removing ""item
-s.dh.wordcount2 <-sort(names(dh.wordcount2))
-names(dh.wordcount2)<- s.dh.wordcount2[-1]
+# ""삭제를 위해 아래 줄이 수정되었습니다. 추가 명렁어는 없습니다.
+dh.wordcount2 <- table(unlist(dh.data2), exclude="")
 df.dh.wordcount2 <- as.data.frame(dh.wordcount2)
 
 pal <- brewer.pal(12,"Set3")
