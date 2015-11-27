@@ -14,7 +14,7 @@ dh.data2 <- gsub("STOPWORD", "", dh.data2)
 dh.wordcount2 <- table(unlist(dh.data2))
 #2 lines are added for removing ""item
 s.dh.wordcount2 <-sort(names(dh.wordcount2))
-dh.wordcount2<- s.dh.wordcount2[-1]
+names(dh.wordcount2)<- s.dh.wordcount2[-1]
 df.dh.wordcount2 <- as.data.frame(dh.wordcount2)
 
 pal <- brewer.pal(12,"Set3")
