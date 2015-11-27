@@ -44,7 +44,7 @@ server <- function(input, output) {
 
 ui <- shinyUI(fluidPage(
   
-  titlePanel("Test for IS101"),
+  titlePanel("My wordcloud"),
   
   sidebarLayout(
     sidebarPanel(
