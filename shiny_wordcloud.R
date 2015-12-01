@@ -31,6 +31,8 @@ pal <- brewer.pal(12,"Set3")
 pal <- pal[-c(1:2)]
 wordcloud(dh.wordcount3$Var1,freq=dh.wordcount3$Freq,scale=c(10,1),max.words=50,random.order=F,random.color=F, rot.per=.1,colors=pal)
 
+kwd.freq <- dh.wordcount3$Freq
+kwd.names <-dh.wordcount3$Var1
 #### Server ####
 server <- function(input, output) {
   # Make the wordcloud drawing predictable during a session
@@ -38,9 +40,9 @@ server <- function(input, output) {
   
   output$plot <- renderPlot({
     
-    wordcloud_rep(dh_rom$dh_rlines, dh_rom$Freq, scale=c(4,0.2),
+    wordcloud_rep(kwd.names, kwd.freq, scale=c(10,1),
                   min.freq = input$freq, max.words=input$max,
-                  colors=brewer.pal(11, "Spectral"))
+                  colors=brewer.pal(8, "Dark2"))
   })
   
 }
@@ -54,8 +56,8 @@ ui <- shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       
-      sliderInput("freq","Minimum Frequency in Wordcloud:",min = min(dh_rom$Freq),  max = max(dh_rom$Freq), value = 5),
-      sliderInput("max","Maximum Number of Words in Wordcloud:", min = 1,  max = length(dh_rom$dh_rlines),  value = 100)
+      sliderInput("freq","Minimum Frequency in Wordcloud:",min = min(kwd.freq),  max = max(kwd.freq), value = 2),
+      sliderInput("max","Maximum Number of Words in Wordcloud:", min = 1,  max = length(kwd.names),  value = 100)
       
     ),
     mainPanel(
