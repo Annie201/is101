@@ -9,7 +9,7 @@ library(wordcloud)
 library(shiny)
 
 
-dh <- file('YOUR FILE HERE', encoding ="UTF-8")
+dh <- file('YOUR RAW DATA FILE NAME', encoding ="UTF-8")
 dh.lines<-readLines(dh)
 useSejongDic()
 dh.nouns <- sapply(dh.lines, extractNoun, USE.NAMES=F)
