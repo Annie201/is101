@@ -26,6 +26,8 @@ write.table(dh.wordcount2, "dh.wordcount2.txt", sep="\t", row.names=FALSE)
 dh_rom <- read.table('rm_dh.wordcount2.txt', encoding="UTF-8", header=T)
 dh.wordcount3 <- as.data.frame(dh_rom)
 
+#wordclouding
+wordcloud(names(dh.wordcount3),freq=dh.wordcount3,scale=c(10,1),max.words=50,random.order=F,random.color=F, rot.per=.1,colors=pal)
 
 #### Server ####
 server <- function(input, output) {
