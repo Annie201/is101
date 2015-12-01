@@ -14,15 +14,15 @@ dh.lines<-readLines(dh)
 useSejongDic()
 dh.nouns <- sapply(dh.lines, extractNoun, USE.NAMES=F)
 dh.data <- unlist(dh.nouns)
-dh.data2 <- Filter(function(x){nchar(x)>MINIMUM LENGTH OF WORD HERE}, dh.data)
-dh.data2 <- gsub("STOPWORD", "", dh.data2)
-dh.wordcount2 <- table(unlist(dh.data2), exclude="")
+dh.data2 <- Filter(function(x){nchar(x)>1}, dh.data)
+dh.data2 <- gsub("STOPWORD", "", dh.data2) # Repeatable
+dh.wordcount2 <- table(unlist(dh.data2), exclude="") # excluding NULL char
 write.table(dh.wordcount2, "dh.wordcount2.txt", sep="\t", row.names=FALSE)
 
 #Romanizing in HANGEUL 
 
 #read romanized words
-dh_rom <- read.table('dh.wordcount2.txt', encoding="UTF-8", header=T)
+dh_rom <- read.table('rm_dh.wordcount2.txt', encoding="UTF-8", header=T)
 dh.wordcount3 <- as.data.frame(dh_rom)
 
 
@@ -49,7 +49,7 @@ ui <- shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       
-      sliderInput("freq","Minimum Frequency in Wordcloud:",min = min(dh_rom$Freq),  max = max(dh_rom$Freq), value = 15),
+      sliderInput("freq","Minimum Frequency in Wordcloud:",min = min(dh_rom$Freq),  max = max(dh_rom$Freq), value = 5),
       sliderInput("max","Maximum Number of Words in Wordcloud:", min = 1,  max = length(dh_rom$dh_rlines),  value = 100)
       
     ),
