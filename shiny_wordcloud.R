@@ -1,8 +1,9 @@
-#Version 0.5 두번째 과제 용입니다.
+# 두번째 과제 용입니다.
 #http://bigbigdata.tistory.com/78에 기반 했습니다.
 #http://ddokbaro.com/3695에 기반 했습니다.
+# Revised 12/01/2015
 # 11/27/2015
-#Based on shiny wordcloud script
+#Based on shiny gallery wordcloud script
 
 library(KoNLP)
 library(wordcloud)
