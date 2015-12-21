@@ -15,7 +15,7 @@ dh.nouns <- sapply(dh.lines, extractNoun, USE.NAMES=F)
 dh.data <- unlist(dh.nouns)
 dh.data2 <- Filter(function(x){nchar(x)>1}, dh.data)
 dh.data2 <- gsub("STOPWORD", "", dh.data2) #repeatable
-# ""삭제를 위해 아래 줄이 수정되었습니다. Deleting NULL
+# Deleting NULL
 dh.wordcount2 <- table(unlist(dh.data2), exclude="")
 df.dh.wordcount2 <- as.data.frame(dh.wordcount2)
 
